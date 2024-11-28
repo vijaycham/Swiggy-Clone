@@ -1,0 +1,26 @@
+{
+  "name": "swiggy-clone",
+  "version": "1.0.0",
+  "description": "This is swiggy-clone using React",
+  "main": "App.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "swiggy"
+  ],
+  "author": "\" VIJAY S\"",
+  "license": "ISC",
+  "devDependencies": {
+    "process": "^0.11.10",
+    "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

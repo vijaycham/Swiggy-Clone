@@ -1,4 +1,6 @@
-const heading = document.createElement("h1");
-heading.innerHTML = "Hello world from JS!";
-const divElemnent = document.getElementById("root");
-divElemnent.appendChild(heading);
+import React from "react"
+import ReactDOM from "react-dom";
+
+const parent = React.createElement( "h1", {}, " Changed parcel to vite" )
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent); 

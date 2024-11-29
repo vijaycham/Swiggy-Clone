@@ -1,1 +1,5 @@
-# Swiggy-Clone
+- Learned JSX
+- React components
+    - functional component
+- component composition 
+- writing JS inside compnent(uisng {})

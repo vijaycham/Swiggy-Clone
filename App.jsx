@@ -1,26 +1,71 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React.createElemet => object => HTMLElement(render)
-const parent = React.createElement("h1", {}, "Changed parcel to vite");
-console.log(parent);
-//JSX - (transpiled before it reaches the JS) - Vite - ES build
-const jsxHeading = <h1 id="heading"> Namaste React Using JSX🚀</h1>;
-console.log(jsxHeading);
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://png.pngtree.com/png-clipart/20220628/original/pngtree-food-logo-png-image_8239850.png"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About us</li>
+          <li>contact us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-//React component
-// Class Based component
-// Functional Component
-// const HeadingComponent = () => {
-//     return <h1>Functional component </h1>
-// }
-const Title = () => <h1 className="Head" tabIndex="5">Title</h1>
-const HeadingComponent = () => (
-  <div id="container">
-    <Title/>  {/* component inside component*/} 
-    {parent}  {/*Element */}
-    <h1 className="heading">Functionanl component </h1>
-  </div>
-);
+const RestaurantCard = () => {
+  return (
+    <div className="res-card">
+      <img className="res-image" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/1bd1323a-6c54-48bd-a0f3-f53b4f1ef02a_609737.jpg" />
+      <h3>Pizza Hut</h3>
+      <h4>Pizzas, Burger</h4>
+      <h4>4.4 stars</h4>
+      <h4>38 minutes</h4>
+
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="body-container">
+      <div className="search-bar"></div>
+      <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);

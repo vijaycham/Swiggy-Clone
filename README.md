@@ -1,5 +1,12 @@
-- Learned JSX
-- React components
-    - functional component
-- component composition 
-- writing JS inside compnent(uisng {})
+Plannong for food delivery App
+- App Layout
+ - Header
+  - Logo, Nav Items
+ - Main container
+  - search 
+  - Restaraunt  card 
+   - Img
+   - Name of restaurant, star rating, cuisine,  
+   - Restaraunt cards 
+ - Footer 
+  -Addres, copy rights 

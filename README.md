@@ -1,4 +1,4 @@
-Plannong for food delivery App
+Planning for food delivery App
 - App Layout
  - Header
   - Logo, Nav Items
@@ -12,8 +12,4 @@ Plannong for food delivery App
   -Addres, copy rights 
 
 
-Props- like Passing arguments into the function
-config driven UI- Ui is driven by congiguration(by data)
-Adjusted the CSS property
-Leard and implemented dynamic data, using props and map fucntion.
-then learned why uniqe key is used . 
+- React Hooks

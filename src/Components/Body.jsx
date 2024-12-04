@@ -1,45 +1,40 @@
-import RestaurantCard from "./RestaurantCard.jsx"
-import resList from "../utils/mockData.jsx";
-import { useState } from "react"; 
+import RestaurantCard from "./RestaurantCard.jsx";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer.jsx";
 
 const Body = () => {
-    const [listOfRestaurants, setListofRestaurant] = useState(resList);
-  // let listOfRestaurants2 = [
-  //   {
-  //     info: {
-  //       id: "6448",
-  //       name: "A2B - Adyar Ananda Bhavan",
-  //       cloudinaryImageId:
-  //         "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/4/85542b62-ca6d-4bb0-b626-f4eda39ec1a3_6448.jpg",
-  //       costForTwo: "₹300 for two",
-  //       cuisines: ["South Indian", "Sweets", "Chinese"],
-  //       avgRating: 4.5,
-  //       sla: {
-  //         deliveryTime: 27,
-  //       },}},
-  //        {
-  //     info: {
-  //       id: "6448",
-  //       name: "Saravana Bavan",
-  //       cloudinaryImageId:
-  //         "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/4/85542b62-ca6d-4bb0-b626-f4eda39ec1a3_6448.jpg",
-  //       costForTwo: "₹300 for two",
-  //       cuisines: ["South Indian", "Sweets", "Chinese"],
-  //       avgRating: 3.9,
-  //       sla: {
-  //         deliveryTime: 27,
-  //       },}}
-  // ]
-  return (
+  const [listOfRestaurants, setListofRestaurants] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0843007&lng=80.2704622&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    setListofRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body-container">
       <div className="filter">
-        <button className="filter-btn" onClick={() => {
-        const  filteredList = listOfRestaurants.filter((res)=> res.info.avgRating>4) 
-        setListofRestaurant(filteredList); 
-        }}> Top Rated restaurant </button>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredList = listOfRestaurants.filter(
+              (res) => res.info.avgRating > 4.2
+            );
+            setListofRestaurants(filteredList);
+          }}
+        >
+          Top Rated restaurant
+        </button>
       </div>
       <div className="res-container">
-  
         {listOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}

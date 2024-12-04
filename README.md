@@ -16,4 +16,7 @@ Planning for food delivery App
     noraml JS utility function 
       - useState() - superpowerful State variable in react 
          whenever state variable changes, react rerender the components
-      - useEffect()  
+      - useEffect()
+
+Using useEffect added shimmerUI
+Created Login/ logout button 

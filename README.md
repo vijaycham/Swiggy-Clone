@@ -20,3 +20,7 @@ Planning for food delivery App
 
 Using useEffect added shimmerUI
 Created Login/ logout button 
+
+if no depency array => useEffect is called on every render
+if dependency array is empty = [] => useEffect is called on initail render(just once)
+if dependency array is [btnName] => called everytime btnName is ipdated

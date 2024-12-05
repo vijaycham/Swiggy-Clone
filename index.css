@@ -65,19 +65,28 @@
   margin: 10px;
   cursor: pointer;
   background-color: #767a76;
-  color: white; 
-  padding: 0px 20px; 
-  border: none; 
-  border-radius: 5px; 
-  font-size: 16px; 
+  color: white;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
   height: 60px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 .filter-btn:focus {
   outline: none; /* Remove outline */
   box-shadow: 0 0 0 3px rgba(85, 90, 86, 0.5); /* Add focus ring */
 }
-
+.filter {
+  margin-top: 10px;
+  display: flex;
+}
+.search {
+  margin-top: 10px;
+  font-size: 16px;
+  height: 60px;
+  cursor: pointer;
+}
 
 .shimmer-container {
   display: flex;
@@ -109,14 +118,14 @@
   }
 }
 .login-button {
-  background-color: #4CAF50;
-  color: white; 
-  padding: 0px 20px; 
-  border: none; 
-  border-radius: 5px; 
-  font-size: 16px; 
+  background-color: #4caf50;
+  color: white;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
   height: 60px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .login-button:hover {

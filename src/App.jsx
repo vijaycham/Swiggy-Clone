@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header.jsx";
-import Body from "./Components/Body.jsx";
+import Body from "./Components/Body.jsx"; 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About   from "./Components/About.jsx";
+import Contact from "./Components/Contact.jsx";
+import Error from "./Components/Error.jsx";
 
 
 const AppLayout = () => {
@@ -13,5 +17,20 @@ const AppLayout = () => {
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout/>,
+    errorElement:<Error/>
+  },
+  {
+    path: "/about",
+    element: <About/>
+  },
+  {
+    path: "/contact",
+    element: <Contact/>
+  }
+])
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter}/>);

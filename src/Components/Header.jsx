@@ -1,10 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
-import { useEffect, useState ,} from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
   const [btnName, setbtnName] = useState(["Login"]);
-  useEffect(()=> {
-  }, [btnName]); 
+  useEffect(() => {}, [btnName]);
   return (
     <div className="header">
       <div className="logo-container">

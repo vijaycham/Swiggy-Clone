@@ -10,6 +10,7 @@ const RestaurantCard = (props) => {
     costForTwo,
     sla: { deliveryTime },
   } = resData?.info || {};
+
   return (
     <div className="res-card w-56 h-[400px] overflow-hidden m-2 bg-gray-100 rounded-l border-2 border-col ">
       <img
@@ -27,4 +28,16 @@ const RestaurantCard = (props) => {
   );
 };
 
+ export const withPromotedLabel = () => {
+  return (props) => {
+    return (
+      <div>
+        <label>
+          Open
+        </label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+ } 
 export default RestaurantCard;

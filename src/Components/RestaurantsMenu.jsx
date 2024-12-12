@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestauntsMenu = () => {
   const { resID } = useParams();
@@ -10,31 +11,28 @@ const RestauntsMenu = () => {
     resInfo?.cards?.[2]?.card?.card?.info || {};
   const deliveryTime = resInfo?.cards?.[2]?.card?.card?.info?.sla?.deliveryTime;
   const menuItems =
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card.card
+    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card.card
       .itemCards || [];
-  console.log(menuItems);
+  console.log(resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+  const categories =
+    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(categories);
   return resInfo === null ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu">
-      <h1>{name}</h1>
+    <div className="restaurant-menu text-center">
+      <h1 className="font-bold my-6 text-2xl ">{name}</h1>
       <div className="menu-into-card">
-        <h3>{avgRating} stars </h3>
-        <h3>{cuisines.join(",")}</h3>
-        <h3>Approx. {deliveryTime} minutes </h3>
-      </div>
-      <div className="item-list">
-        <h2>Menu</h2>
-        <ul>
-          {menuItems.map((item) => (
-            <li key={item.card.info.id}>
-              {item.card.info.name} -{" Rs. "}
-              {item.card.info.price / 100 ||
-                item.card.info.finalPrice / 100 ||
-                item.card.info.defaultPrice / 100}
-            </li>
-          ))}
-        </ul>
+        <h3 className="font-bold text-lg">{avgRating} stars </h3>
+        <h3 className="font-bold text-lg"> {cuisines.join(",")}</h3>
+        {categories.map((category) => (
+          <RestaurantCategory data={category?.card?.card} />
+        ))}
       </div>
     </div>
   );

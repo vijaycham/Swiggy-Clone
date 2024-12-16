@@ -1,5 +1,5 @@
 import ItemList from "./ItemList";
-import { useState } from "react";
+
 
 const RestaurantCategory = ({ data ,showItem, setShowIndex}) => {
  
@@ -8,12 +8,12 @@ const RestaurantCategory = ({ data ,showItem, setShowIndex}) => {
   };
   return (
     <div>
-      <div className="w-7/12 mx-auto my-4  bg-gray-50 shadow-lg p-4">
+      <div className="w-8/12 mx-auto my-6  bg-gray-50 shadow-xl p-6">
         <div
           className="flex justify-between cursor-pointer"
           onClick={handleclick}
         >
-          <span className="font-bold text-lg">
+          <span className="font-semibold text-xl">
             {data.title} ({data.itemCards.length})
           </span>
           {showItem ? (

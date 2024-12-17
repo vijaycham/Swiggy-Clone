@@ -1,3 +1,7 @@
-Props-Drilling
-React Context- Like global place 
-we can use context to whole app, or some part of it also. check app.js
+# Redux Toolkit
+ - Install @reduxjs/toolkit adn react-redux
+ - Build our store
+ - Connect our stores to our app
+ - Slice (cartslice)
+ - dispatch(action)
+ - Selector

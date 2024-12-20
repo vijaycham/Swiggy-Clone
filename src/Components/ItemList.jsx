@@ -3,16 +3,15 @@ import { CDN_URL } from "../utils/constants";
 import {addItem} from "../utils/cartSlice"
 
 const ItemList = ({ items }) => {
-
   const dispatch = useDispatch();
-  const handleAddItem = () => {
-    dispatch(addItem())
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
   }
   return (
     <div>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div
-          key={item.card.info.id}
+          key={`${item.card.info.id}-${index}` }
           className="flex justify-between items-start gap-4 border-b border-gray-300 pb-4 mb-4"
         >
           <div className="w-10/12">
@@ -41,7 +40,10 @@ const ItemList = ({ items }) => {
               </div>
             )}
             <div className="absolute mx-16 my-[-18px]">
-              <button className="p-1 bg-black text-white rounded-lg " onClick={handleAddItem}>
+              <button
+                className="p-1 bg-black text-white rounded-lg "
+                onClick={()=> handleAddItem(item)}
+              >
                 Add +
               </button>
             </div>

@@ -34,7 +34,7 @@ const Body = () => {
     );
    const { setUserName, loggedInUser } = useContext(userContext);
   return listOfRestaurants.length === 0 ? (
-    <Shimmer />
+    <Shimmer/>
   ) : (
     <div className="body-container">
       <div className="filter flex ">
@@ -64,7 +64,7 @@ const Body = () => {
             className="filter-btn border-none bg-gray-500 rounded-xl text-white m-4 px-4 py-2"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4.2
+                (res) => res.info.avgRating > 4.5
               );
               setListofRestaurants(filteredList);
             }}

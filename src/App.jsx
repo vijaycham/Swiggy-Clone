@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Error from "./Components/Error.jsx";
-import RestauntsMenu from "./Components/RestaurantsMenu.jsx";
+import RestaurantsMenu from "./Components/RestaurantsMenu.jsx";
 import Shimmer from "./Components/Shimmer.jsx";
 import userContext from "./utils/userContext.jsx";
 import { Provider } from "react-redux";
@@ -16,7 +16,7 @@ import Cart from "./Components/Cart.jsx";
 const Grocery = lazy(() => import("./Components/Grocery"));
 
 const AppLayout = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState(null);
 
   useEffect(() => {
     const data = {
@@ -63,7 +63,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resID",
-        element: <RestauntsMenu />,
+        element: <RestaurantsMenu />,
       },
       {
         path: "/cart",

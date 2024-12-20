@@ -1,6 +1,7 @@
 {
   "name": "swiggy-clone",
   "version": "1.0.0",
+  "type": "module",
   "description": "This is swiggy-clone using React",
   "scripts": {
     "dev": "vite",

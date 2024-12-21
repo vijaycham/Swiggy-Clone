@@ -1,7 +1,11 @@
-# Redux Toolkit
- - Install @reduxjs/toolkit adn react-redux
- - Build our store
- - Connect our stores to our app
- - Slice (cartslice)
- - dispatch(action)
- - Selector
+# Types of testing
+ -  Unit testing
+ - Integration testing
+ - End to end Testing - e2e
+
+# Setting up Testing
+ - Install RTL
+ - Install Jest
+ - Install Babel Dependecies
+ - Configured babel
+ - Jest Configuration 

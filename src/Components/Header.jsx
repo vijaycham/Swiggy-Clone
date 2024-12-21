@@ -5,6 +5,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
 
+
 const Header = () => {
   const [btnName, setbtnName] = useState(["Login"]);
   const onlineStatus = useOnlineStatus();
@@ -15,7 +16,9 @@ const Header = () => {
   return (
     <div className="header flex justify-between bg-lime-50 shadow-md mb-5 border-lime-100 border-2 items-center">
       <div className="logo-container">
-        <img className="w-32" src={LOGO_URL} />
+        <Link to={"/"}>
+          <img className="w-32" src={LOGO_URL} />
+        </Link>
       </div>
       <div className="nav-items">
         <ul className=" flex  m-4 text-xl items-center ">
@@ -35,7 +38,7 @@ const Header = () => {
           <li className=" m-4  font-bold">
             {" "}
             <Link to="/cart"> Cart -({cartItems.length} items) </Link>
-           </li>
+          </li>
           <button
             className="login-button m-4 filter-btn border-none bg-green-500 rounded-xl text-white px-4 py-2"
             onClick={() => {

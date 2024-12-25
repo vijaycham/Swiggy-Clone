@@ -9,7 +9,7 @@ import userContext from "../utils/userContext.jsx";
 const Body = () => {
   const [listOfRestaurants, setListofRestaurants] = useState([]);
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
-  const [searchText, setSearchText] = useState(" ");
+  const [searchText, setSearchText] = useState("");
 
   const RestaurantCardOpen = withPromotedLabel(RestaurantCard);
   console.log("Body rendered");
@@ -19,12 +19,11 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(HOME_URL);
     const json = await data.json();
-    setListofRestaurants(
-      json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setfilteredRestaurant(
-      json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    const restaurants =
+      json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+    setListofRestaurants(restaurants);
+    setfilteredRestaurant(restaurants);
   };
   const onlineStatus = useOnlineStatus();
 
@@ -32,19 +31,19 @@ const Body = () => {
     return (
       <h1> Look's like your offline. Please check your internet connection.</h1>
     );
-   const { setUserName, loggedInUser } = useContext(userContext);
+  const { setUserName, loggedInUser } = useContext(userContext);
   return listOfRestaurants.length === 0 ? (
-    <Shimmer/>
+    <Shimmer />
   ) : (
     <div className="body-container">
       <div className="filter flex ">
         <div className="search ">
           <input
             type="text"
-            className="search-box border-2 px-4 py-1 border-black"
+            className="search-box border-2 px-4 py-1 border-black mx-4"
             value={searchText}
             onChange={(e) => {
-              setSearchText(e.target.value);
+              setSearchText(e.target.value); 
             }}
           />
           <button
@@ -66,7 +65,7 @@ const Body = () => {
               const filteredList = listOfRestaurants.filter(
                 (res) => res.info.avgRating > 4.5
               );
-              setListofRestaurants(filteredList);
+              setfilteredRestaurant(filteredList);
             }}
           >
             Top Rated restaurant
@@ -74,7 +73,11 @@ const Body = () => {
         </div>
         <div className=" rounded-xl m-3 px-4 py-2">
           <label>UserName : </label>
-          <input className="border  border-black p-1" value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+          <input
+            className="border  border-black p-1"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="res-container flex flex-wrap">

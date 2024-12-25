@@ -7,8 +7,9 @@ const Contact = () => {
       <input className="p-2 mx-2 border border-black" placeholder="Name" />
       <input className="p-2 mx-2 border border-black" placeholder="Message" />
       <button className="p-2 m-2 bg-black text-white rounded-md"> Submit </button>
-      {/* <User /> */}
+      <User> </User>
     </div>
+   
   );
 };
 

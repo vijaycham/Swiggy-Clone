@@ -12,7 +12,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const RestaurantCardOpen = withPromotedLabel(RestaurantCard);
-  console.log("Body rendered");
   useEffect(() => {
     fetchData();
   }, []);
@@ -40,6 +39,7 @@ const Body = () => {
         <div className="search ">
           <input
             type="text"
+            data-testid = "searchInput"
             className="search-box border-2 px-4 py-1 border-black mx-4"
             value={searchText}
             onChange={(e) => {

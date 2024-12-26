@@ -1,7 +1,6 @@
 import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
   const { resData } = props;
-  console.log(resData)
   const {
     name,
     cuisines,
@@ -12,7 +11,7 @@ const RestaurantCard = (props) => {
   } = resData?.info || {};
 
   return (
-    <div className="res-card w-56 h-[400px] overflow-hidden m-2 bg-gray-100 rounded-l border-2 border-col ">
+    <div data-testid="resCard" className="res-card w-56 h-[400px] overflow-hidden m-2 bg-gray-100 rounded-l border-2 border-col ">
       <img
         className="res-image object-cover w-56 h-56 rounded-l"
         alt={`${name}-logo`}

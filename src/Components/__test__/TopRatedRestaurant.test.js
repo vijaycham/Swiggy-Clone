@@ -21,6 +21,8 @@ it("should filter Top Restaraunts", async () => {
     )
   );
 
+
+  
     const cardsBeforeFilter = screen.getAllByTestId("resCard");
 
     expect(cardsBeforeFilter.length).toBe(20);

@@ -10,7 +10,7 @@ const ItemList = ({ items }) => {
   return (
     <div>
       {items.map((item, index) => (
-        <div
+        <div data-testid = "foodItems"
           key={`${item.card.info.id}-${index}` }
           className="flex justify-between items-start gap-4 border-b border-gray-300 pb-4 mb-4"
         >
